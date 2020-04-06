@@ -38,7 +38,7 @@ To set up the project, perform these steps in order after using your command lin
     ```
     git clone git@github.com:ssciolla/ebook-ident.git      # SSH
     git clone https://github.com/ssciolla/ebook-ident.git  # HTTPS
-    
+
     cd ebook-ident
     ```
 
@@ -49,8 +49,9 @@ To set up the project, perform these steps in order after using your command lin
 
 3. Activate the virtual environment.
     ```
-    source venv/bin/activate  # Mac OS
-    venv\Scripts\activate     # Windows
+    source venv/bin/activate      # Mac OS
+    venv\Scripts\activate         # Windows
+    source venv/Scripts/activate  # Windows Git Bash
     ```
 
     **Note**: to deactivate after installation and/or use, simply issue the command `deactivate`.
@@ -60,8 +61,8 @@ To set up the project, perform these steps in order after using your command lin
     pip install -r requirements.txt
     ```
 
-    **Note for Windows users:** the `python-Levenshtein` package may require additional software to build. You can satisfy these dependencies by installing [Microsoft Visual Studio](https://visualstudio.microsoft.com/visual-cpp-build-tools/), ensuring that you install the C++ language development tools. 
-    
+    **Note for Windows users:** the `python-Levenshtein` package may require additional software to build. You can satisfy these dependencies by installing [Microsoft Visual Studio](https://visualstudio.microsoft.com/visual-cpp-build-tools/), ensuring that you install the C++ language development tools.
+
     Alternatively, you can download a pre-compiled binary from the [Unofficial Windows Binaries for Python Extension Packages](https://www.lfd.uci.edu/~gohlke/pythonlibs/#python-levenshtein). Note the maintainer warns that these binaries should only be used for testing. To install the `.whl` file, from within the activated virtual environment, run the following command, replacing `{absolute_path}` with the absolute path to the download.
     ```
     pip install {absolute_path}
@@ -96,7 +97,11 @@ The application running successfully depends on two input files being provided: 
 
 #### Running the application
 
-Once the steps under **Installation** and **Configuration** have been completed, the application can be used. At the project's root level and with the virtual environment activated, enter the following command:
+Once the steps under **Installation** and **Configuration** have been completed, the application can be used.
+
+You may need to be using a U-M IP address if authenticating with the U-M Library's WorldCat Search API account, so connect to the VPN network if working from home.
+
+At the project's root level and with the virtual environment activated, enter the following command:
 
 ```
 python identify.py
@@ -114,7 +119,7 @@ Currently, the project has two primary outputs. These are likely to change if wo
 
 #### Using and re-setting the cache
 
-In order to use the WorldCat Search API responsibly, the application includes a caching implementation that stores the request URLs and corresponding XML responses (along with a timestamp) in the `request` table of an SQLite database. The database will automatically be generated when the application is initially executed. If the default configuration options are maintained, the file-based database will appear in the `data` directory with the name `db_cache.db`. 
+In order to use the WorldCat Search API responsibly, the application includes a caching implementation that stores the request URLs and corresponding XML responses (along with a timestamp) in the `request` table of an SQLite database. The database will automatically be generated when the application is initially executed. If the default configuration options are maintained, the file-based database will appear in the `data` directory with the name `db_cache.db`.
 
 If the application crashes for some reason during execution, when it is restarted, it will use cached data for requests that it has already made. If the data in the database becomes stale or needs to be invalidated, the database can be reset easily by issuing the following command within the activated virtual environment:
 ```
