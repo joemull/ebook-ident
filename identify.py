@@ -18,7 +18,7 @@ from compare import classify_by_format, \
                     polish_isbn, \
                     normalize_univ, \
                     NA_PATTERN
-from db_cache import make_request_using_cache, set_up_database
+from db_cache import make_request_using_cache # , set_up_database
 
 
 # Initialize settings and global variables
@@ -33,9 +33,9 @@ except FileNotFoundError:
 
 logging.basicConfig(level=ENV.get('LOG_LEVEL', 'DEBUG'))
 
-# Set up database if necessary
-if not os.path.isfile(os.path.join(*ENV['DB_CACHE_PATH'])):
-    set_up_database()
+# # Set up database if necessary
+# if not os.path.isfile(os.path.join(*ENV['DB_CACHE_PATH'])):
+#     set_up_database()
 
 BOOKS_CSV_PATH_ELEMS = ENV['BOOKS_CSV_PATH']
 

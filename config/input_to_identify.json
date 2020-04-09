@@ -1,6 +1,9 @@
 {
-    "Author last": "Author_Last",
-    "Publisher": "Publisher 1",
+    "Author 1 Last": "authorLast",
+    "Author first" : "authorFirst",
+    "Main Title" : "mainTitle",
+    "Subtitle" : "subtitle",
+    "Publisher": "publisher",
     "ISBN1_13": "ISBN_13 1",
     "Pub Format": "Pub_Format 1",
     "ISBN2_13": "ISBN_13 2",
