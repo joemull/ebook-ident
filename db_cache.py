@@ -53,11 +53,12 @@ def make_request_using_cache(url: str, params: Dict[str, str]) -> str:
 
             # logger.debug('Retrieving cached data...')
             # return cache_df.iloc[0]['response']
-
+            # print('found in cache')
             return ref[unique_req_url]
 
         else:
             # logger.debug('Making a request for new data...')
+            # print('making a new request')
             response_obj = requests.get(url, params)
             # logger.debug(response_obj.url)
             status_code = response_obj.status_code
